@@ -7,11 +7,6 @@ import base64
 
 
 class FaceRec:
-    # def __init__(self, known_person_path_file, unknown_images_path_file, known_name=None):
-    #     self.known_person_path_file = known_person_path_file
-    #     self.unknown_images_path_file = unknown_images_path_file
-    #     self.known_name = known_name
-
     def __init__(self):
         self.unknown_images_path_file = 'stranger'
         self.known_names = []
@@ -57,8 +52,8 @@ class FaceRec:
                         index = np.argmin(distances)
                         name = self.known_names[index]
                     self.face_names.append(name)
-                print(self.known_names)
-                print(self.face_names)
+                print('self.known_names: ', self.known_names)
+                print('self.face_names: ', self.face_names)
 
                 ####
                 for (top, right, bottom, left), face_encoding in zip(face_locations, face_encodings):
@@ -70,8 +65,10 @@ class FaceRec:
 
                     if matches[best_match_index]:
                         name = known_face_names[best_match_index]
+                        print('name: ', name)
                         return name
 
+                    print('name: ', name)
                     return name
 
 
